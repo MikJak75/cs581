@@ -85,46 +85,9 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    #print(f"Name: {args.f1}, Age: {args.f2}")
     f1 = args.f1
     f2 = args.f2
     f3 = args.f3
-                   
-    #A = np.array([
-        #[1, 0, 0, 0,],
-        #[0, 1, 0, 0,],
-        #[0, 0, 1, 0,],
-        #[0, 0, 0, 1,],
-    #])
-
-    #B = np.array([
-        #[2, 3, 2, 2],
-        #[2, 2, 4, 2],
-        #[2, 5, 2, 2],
-        #[2, 2, 2, 8],
-    #])
-
-    #D = np.array([
-        #[1, 2, 3, 4],
-        #[5, 6, 7, 8],
-        #[9, 10,11,12],
-        #[13,14,15,16],
-    #])
-
-    #A = D
-
-    #C = (A @ B)
-    
-    #C = strassen(A, B)
-
-    #print(C)
-    #print(A@B)
-
-    #print(f"True: {C == A@B}")
-
-    #C = dandc(A, B)
-
-    #store_matrix(f3, C)
 
     A = load_matrix(f1)
     B = load_matrix(f2)
