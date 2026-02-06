@@ -11,7 +11,7 @@ def create_sets(sizes):
     dir_name = "part5-analysis/matrices/"
     for i in range(len(sizes)):
 
-        set_name = dir_name + f"set_{i}/"
+        set_name = dir_name + f"set{i}/"
         # If the set doesn't exist already
         if os.path.exists(set_name) == False:
             os.mkdir(set_name)
