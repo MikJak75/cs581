@@ -57,7 +57,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    #print(f"Name: {args.f1}, Age: {args.f2}")
     f1 = args.f1
     f2 = args.f2
     f3 = args.f3
@@ -69,8 +68,5 @@ if __name__ == "__main__":
     C = naive(A, B)
 
     store_matrix(f3, C)
-
-    #load_matrix(f1)
-
 
     exit()
