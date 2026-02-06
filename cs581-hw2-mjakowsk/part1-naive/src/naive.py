@@ -1,10 +1,6 @@
 import argparse
 import numpy as np
 
-
-
-
-
 def naive(A, B):
     ma = A.shape[0]
     na = A.shape[1]
@@ -15,13 +11,13 @@ def naive(A, B):
     if na != mb:
         raise ValueError("Incompatible matrix dimensions")
 
-    C = np.zeros((ma, nb))
+    C = np.zeros((ma, nb), dtype=int)
 
 
     for i in range(ma):
         for j in range(nb):
             for k in range(na):
-                C[i, j] += A[i, k] * B[k, j]
+                C[i, j] += int(A[i, k] * B[k, j])
                 
     return C
 
@@ -31,15 +27,26 @@ def load_matrix(fname):
         m = int(lines[0].strip().split()[0])
         n = int(lines[0].strip().split()[1])
 
-    C = np.zeros((int(m), int(n)))
+    C = np.zeros((int(m), int(n)), dtype=int)
 
     for i, line in enumerate(lines[1:]):
         val_list = line.strip().split()
         for j in range(n):
-            C[i, j] = float(val_list[j])
+            C[i, j] = int(val_list[j])
     
-    print(f"{m} x {n}")
+    #print(f"{m} x {n}")
     return C
+
+
+def store_matrix(fname, C):
+    m = C.shape[0]
+    n = C.shape[1]
+
+    with open(fname, 'w') as f:
+        f.write(f"{m} {n}\n")
+        for i in range(m):
+            row = " ".join([str(C[i, j]) for j in range(n)])
+            f.write(f"{row}\n")
 
         
 if __name__ == "__main__":
@@ -58,13 +65,10 @@ if __name__ == "__main__":
 
     A = load_matrix(f1)
     B = load_matrix(f2)
-    print(A)
-    print(B)
-
-    print(A@B)
 
     C = naive(A, B)
-    print(C)
+
+    store_matrix(f3, C)
 
     #load_matrix(f1)
 
