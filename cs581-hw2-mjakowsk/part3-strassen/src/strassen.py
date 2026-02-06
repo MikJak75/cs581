@@ -94,8 +94,6 @@ if __name__ == "__main__":
 
     C = strassen(A, B)
 
-    #print (A@B)
-
     store_matrix(f3, C)
 
     exit()
